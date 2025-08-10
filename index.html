@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AsesoríasUTC - Tu Futuro Universitario Comienza Aquí</title>
+    <!-- Material Icons de Google -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <style>
+        /* Reset y estilos base */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px 0;
+        }
+        
+        /* Header */
+        header {
+            background-color: #2c3e50;
+            color: white;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+        
+        .logo img {
+            height: 50px;
+            margin-right: 15px;
+        }
+        
+        .logo h1 {
+            font-size: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .logo span {
+            color: #3498db;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+            display: flex;
+            align-items: center;
+        }
+        
+        nav ul li a:hover {
+            color: #3498db;
+        }
+        
+        nav ul li a i {
+            margin-right: 5px;
+        }
+        
+        .mobile-menu {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+        
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+            color: white;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            margin-top: 70px;
+        }
+        
+        .hero-content {
+            width: 100%;
+        }
+        
+        .hero h2 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: #3498db;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid white;
+            margin-left: 15px;
+        }
+        
+        .btn-outline:hover {
+            background-color: white;
+            color: #2c3e50;
+        }
+        
+        /* Servicios */
+        .services {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 2rem;
+            color: #2c3e50;
+        }
+        
+        .section-title i {
+            vertical-align: middle;
+            margin-right: 10px;
+            color: #3498db;
+        }
+        
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .service-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .service-img {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .service-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        
+        .service-card:hover .service-img img {
+            transform: scale(1.1);
+        }
+        
+        .service-content {
+            padding: 20px;
+        }
+        
+        .service-content h3 {
+            margin-bottom: 15px;
+            color: #2c3e50;
+        }
+        
+        /* Sobre Nosotros */
+        .about {
+            padding: 80px 0;
+            background-color: #f5f5f5;
+        }
+        
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        
+        .about-text h2 {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .about-text p {
+            margin-bottom: 15px;
+        }
+        
+        .about-img {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        .about-img img {
+            width: 100%;
+            display: block;
+        }
+        
+        /* Testimonios */
+        .testimonials {
+            padding: 80px 0;
+            background-color: white;
+        }
+        
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .testimonial-card {
+            background-color: #f9f9f9;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        .testimonial-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 15px;
+        }
+        
+        .testimonial-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .testimonial-info h4 {
+            margin-bottom: 5px;
+            color: #2c3e50;
+        }
+        
+        .testimonial-info p {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+        
+        .testimonial-text {
+            font-style: italic;
+            color: #555;
+        }
+        
+        /* Galería de Fotos */
+        .photo-gallery {
+            padding: 80px 0;
+            position: relative;
+            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+        }
+        
+        .bg-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(44, 62, 80, 0.8);
+        }
+        
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+        
+        .gallery-item {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            cursor: pointer;
+            aspect-ratio: 1;
+            transition: transform 0.3s;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+        
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.5s;
+        }
+        
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+        
+        .img-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.7), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        
+        .gallery-item:hover .img-overlay {
+            opacity: 1;
+        }
+        
+        /* Contacto */
+        .contact {
+            padding: 80px 0;
+            background-color: #f5f5f5;
+        }
+        
+        .contact-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+        
+        .contact-info h3 {
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        
+        .contact-details {
+            margin-bottom: 30px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        
+        .contact-item i {
+            margin-right: 15px;
+            color: #3498db;
+            font-size: 1.2rem;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .social-links a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 50%;
+            transition: all 0.3s;
+        }
+        
+        .social-links a:hover {
+            background-color: #2980b9;
+            transform: translateY(-3px);
+        }
+        
+        .contact-form input,
+        .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        .contact-form textarea {
+            height: 150px;
+            resize: vertical;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 40px 0 20px;
+        }
+        
+        .footer-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        
+        .footer-col h3 {
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+        
+        .footer-col ul {
+            list-style: none;
+        }
+        
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+        
+        .footer-col ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        .footer-col ul li a:hover {
+            color: #3498db;
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: #bdc3c7;
+            font-size: 0.9rem;
+        }
+        
+        /* Lightbox Styles */
+        .lightbox {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.9);
+            z-index: 10000;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+        }
+        
+        .lightbox-content img {
+            width: 100%;
+            height: auto;
+            max-height: 80vh;
+            object-fit: contain;
+        }
+        
+        .close-lightbox {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .close-lightbox:hover {
+            color: #ff6b6b;
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            padding: 0 20px;
+            box-sizing: border-box;
+        }
+        
+        .lightbox-nav button {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 40px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        
+        .lightbox-nav button:hover {
+            color: #ff6b6b;
+        }
+        
+        .lightbox-caption {
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: absolute;
+            bottom: 20px;
+            width: 100%;
+        }
+        
+        /* Responsive */
+        @media (max-width: 992px) {
+            .about-content,
+            .contact-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .about-img {
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                width: 100%;
+                background-color: #2c3e50;
+                flex-direction: column;
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            }
+            
+            nav ul.show {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 10px 0;
+            }
+            
+            .mobile-menu {
+                display: block;
+            }
+            
+            .hero h2 {
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .btn {
+                padding: 10px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <img src="https://i.ibb.co/0jDfccBy/universidad-tres-culturas-utc-logo.jpg" alt="Logo AsesoríasUTC">
+                <h1>Asesorías<span>UTC</span></h1>
+            </div>
+            <nav>
+                <div class="mobile-menu">
+                    <i class="material-icons">menu</i>
+                </div>
+                <ul>
+                    <li><a href="#inicio"><i class="material-icons">home</i> Inicio</a></li>
+                    <li><a href="#servicios"><i class="material-icons">school</i> Servicios</a></li>
+                    <li><a href="#nosotros"><i class="material-icons">info</i> Nosotros</a></li>
+                    <li><a href="#testimonios"><i class="material-icons">format_quote</i> Testimonios</a></li>
+                    <li><a href="#galeria"><i class="material-icons">photo_library</i> Galería</a></li>
+                    <li><a href="#contacto"><i class="material-icons">email</i> Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="inicio">
+        <div class="container hero-content">
+            <h2>Tu Futuro Universitario Comienza Aquí</h2>
+            <p>Brindamos asesoría especializada para ayudarte a ingresar a la Universidad Tres Culturas y alcanzar tus metas académicas.</p>
+            <a href="#contacto" class="btn">Contáctanos</a>
+            <a href="#servicios" class="btn btn-outline">Nuestros Servicios</a>
+        </div>
+    </section>
+
+    <!-- Servicios -->
+    <section class="services" id="servicios">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="material-icons">school</i> Nuestros Servicios
+            </h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Asesoría de Admisión" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <h3>Asesoría de Admisión</h3>
+                        <p>Te guiamos paso a paso en el proceso de admisión a la UTC, desde la documentación hasta el examen de ingreso.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Preparación para Exámenes" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <h3>Preparación para Exámenes</h3>
+                        <p>Clases especializadas para prepararte en las áreas de conocimiento evaluadas en el examen de admisión.</p>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-img">
+                        <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Orientación Vocacional" loading="lazy">
+                    </div>
+                    <div class="service-content">
+                        <h3>Orientación Vocacional</h3>
+                        <p>Te ayudamos a identificar tus habilidades e intereses para elegir la carrera universitaria más adecuada para ti.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sobre Nosotros -->
+    <section class="about" id="nosotros">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="material-icons">info</i> Sobre Nosotros
+            </h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>Nuestra Misión</h2>
+                    <p>Somos un equipo de profesionales comprometidos con la educación superior, dedicados a ayudar a los estudiantes a alcanzar sus sueños de ingresar a la Universidad de sus sueños.</p>
+                    <p>Con años de experiencia en el sistema educativo de la UTC, conocemos a profundidad los requisitos y procesos de admisión, así como las habilidades necesarias para tener éxito en el examen de ingreso.</p>
+                    <p>Nuestro enfoque personalizado y metodología probada han ayudado a cientos de estudiantes a convertirse en parte de la comunidad UTC.</p>
+                    <a href="#contacto" class="btn">Contáctanos</a>
+                </div>
+                <div class="about-img">
+                    <img src="https://i.ibb.co/LDvCD7d1/178d2160-2a75-48a5-8100-fcd24fad3f66.jpg" alt="Equipo AsesoríasUTC" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonios -->
+    <section class="testimonials" id="testimonios">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="material-icons">format_quote</i> Testimonios
+            </h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-img">
+                            <img src="https://i.ibb.co/8nfBR40B/image.png" alt="Felipe Ramírez">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Felipe Ramírez</h4>
+                            <p>Ingeniería en Biotecnología</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        <p>"Gracias a AsesoríasUTC logré ingresar a la carrera de mis sueños. Sus profesores son increíbles y el material de estudio es muy completo. ¡100% recomendados!"</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-img">
+                            <img src="https://i.ibb.co/Q3dyM3n4/image.png" alt="Agustín Castro">
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Agustín Castro</h4>
+                            <p>Licenciatura en Administración</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        <p>"No sabía por dónde empezar con el proceso de admisión, pero los asesores me guiaron en cada paso. Ahora soy estudiante de la UTC gracias a su apoyo."</p>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-img">
+                            <img src="https://i.ibb.co/21PqvxTH/image.png" alt="Aarón Huerta">
+
+src="https://instagram.fmex12-1.fna.fbcdn.net/v/t51.2885-19/523247090_18006765458792447_6235133043009596331_n.jpg?stp=dst-jpg_s150x150_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=instagram.fmex12-1.fna.fbcdn.net&_nc_cat=111&_nc_oc=Q6cZ2QFsG3MP_kurisPPwtLZTaLeoe24r8NNoTLMtGnayy7GjcQYt-eeZ_cOl25GBMNYRyKUHawbDc9GKG79G6AlmoQm&_nc_ohc=jiOxNl7ZWJcQ7kNvwELcgxz&_nc_gid=zXTgZSZy-7ORzPHQonNKsQ&edm=AP4sbd4BAAAA&ccb=7-5&oh=00_AfR4hqD7hK3YhRVtJdSQZa0lt1aUV571kvvA8ZLwHUnXnA&oe=6889F88D&_nc_sid=7a9f4b"
+
+
+
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Aarón Huerta</h4>
+                            <p>Tecnologías de la Información</p>
+                        </div>
+                    </div>
+                    <div class="testimonial-text">
+                        <p>"Las clases de preparación para el examen fueron clave para mi ingreso. Los profesores explican muy bien y se preocupan por el aprendizaje de cada estudiante."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Galería de Fotos -->
+    <section id="galeria" class="photo-gallery">
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <h2 class="section-title" style="color: white;">
+                <i class="material-icons">photo_library</i> Galería de Nuestro Campus
+            </h2>
+            <div class="gallery-grid">
+                <div class="gallery-item" onclick="openLightbox('https://i.ibb.co/B2Jd3GGC/94605b78-7409-4335-86f1-907c19aa096b-1.png', 'Campus AsesoríasUTC')">
+                    <img src="https://i.ibb.co/B2Jd3GGC/94605b78-7409-4335-86f1-907c19aa096b-1.png" alt="Campus AsesoríasUTC" loading="lazy">
+                    <div class="img-overlay"></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://i.ibb.co/C3jtxBTK/3cd0c961-c3d8-459d-a792-0b17ab136bbe.jpg', 'Aulas AsesoríasUTC')">
+                    <img src="https://i.ibb.co/C3jtxBTK/3cd0c961-c3d8-459d-a792-0b17ab136bbe.jpg" alt="Aulas AsesoríasUTC" loading="lazy">
+                    <div class="img-overlay"></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://i.ibb.co/60GFbXsp/9fbdf1c3-bda6-44fe-8c49-bca3a1119467.jpg', 'Biblioteca AsesoríasUTC')">
+                    <img src="https://i.ibb.co/60GFbXsp/9fbdf1c3-bda6-44fe-8c49-bca3a1119467.jpg" alt="Biblioteca AsesoríasUTC" loading="lazy">
+                    <div class="img-overlay"></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://i.ibb.co/LdDrpxhM/879f4d6f-a934-4b73-a1bf-2d2be11e5d51.jpg', 'Estudiantes AsesoríasUTC')">
+                    <img src="https://i.ibb.co/LdDrpxhM/879f4d6f-a934-4b73-a1bf-2d2be11e5d51.jpg" alt="Estudiantes AsesoríasUTC" loading="lazy">
+                    <div class="img-overlay"></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://i.ibb.co/cc6ZvGP4/4b1a1b7c-faa7-4753-a413-365d106a070e.jpg', 'Laboratorios AsesoríasUTC')">
+                    <img src="https://i.ibb.co/cc6ZvGP4/4b1a1b7c-faa7-4753-a413-365d106a070e.jpg" alt="Laboratorios AsesoríasUTC" loading="lazy">
+                    <div class="img-overlay"></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://i.ibb.co/zHLVx6YL/5e147cfe-a03b-4541-8f46-db4b359d0ac5.jpg', 'Eventos AsesoríasUTC')">
+                    <img src="https://i.ibb.co/zHLVx6YL/5e147cfe-a03b-4541-8f46-db4b359d0ac5.jpg" alt="Eventos AsesoríasUTC" loading="lazy">
+                    <div class="img-overlay"></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://i.ibb.co/4w83MXNR/58e487de-97f0-4684-8556-84495715fcb9.jpg', 'Profesores AsesoríasUTC')">
+                    <img src="https://i.ibb.co/4w83MXNR/58e487de-97f0-4684-8556-84495715fcb9.jpg" alt="Profesores AsesoríasUTC" loading="lazy">
+                    <div class="img-overlay"></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://i.ibb.co/LDvCD7d1/178d2160-2a75-48a5-8100-fcd24fad3f66.jpg', 'Instalaciones AsesoríasUTC')">
+                    <img src="https://i.ibb.co/LDvCD7d1/178d2160-2a75-48a5-8100-fcd24fad3f66.jpg" alt="Instalaciones AsesoríasUTC" loading="lazy">
+                    <div class="img-overlay"></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://i.ibb.co/HLdpCkD4/7724d216-bd83-4fe0-b345-a9db7ede6e74.jpg', 'Talleres AsesoríasUTC')">
+                    <img src="https://i.ibb.co/HLdpCkD4/7724d216-bd83-4fe0-b345-a9db7ede6e74.jpg" alt="Talleres AsesoríasUTC" loading="lazy">
+                    <div class="img-overlay"></div>
+                </div>
+                <div class="gallery-item" onclick="openLightbox('https://i.ibb.co/jvsRSVk2/fa01acc3-a820-4f15-969d-a73a26baec7f.jpg', 'Actividades AsesoríasUTC')">
+                    <img src="https://i.ibb.co/jvsRSVk2/fa01acc3-a820-4f15-969d-a73a26baec7f.jpg" alt="Actividades AsesoríasUTC" loading="lazy">
+                    <div class="img-overlay"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contacto -->
+    <section class="contact" id="contacto">
+        <div class="container">
+            <h2 class="section-title">
+                <i class="material-icons">email</i> Contacto
+            </h2>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Información de Contacto</h3>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <i class="material-icons">location_on</i>
+                            <span>Huehuetoca Centro</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="material-icons">phone</i>
+                            <span>+52 998 123 4567</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="material-icons">email</i>
+                            <span>contacto@asesoriasutc.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="material-icons">schedule</i>
+                            <span>Lunes a Viernes: 9:00 am - 6:00 pm</span>
+                        </div>
+                    </div>
+                    <h3>Síguenos</h3>
+                    <div class="social-links">
+                        <a href="#"><i class="material-icons">facebook</i></a>
+                        <a href="#"><i class="material-icons">instagram</i></a>
+                        <a href="#"><i class="material-icons">twitter</i></a>
+                        <a href="#"><i class="material-icons">linkedin</i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form>
+                        <input type="text" placeholder="Nombre completo" required>
+                        <input type="email" placeholder="Correo electrónico" required>
+                        <input type="tel" placeholder="Teléfono">
+                        <select required>
+                            <option value="" disabled selected>Selecciona un servicio</option>
+                            <option value="admision">Asesoría de Admisión</option>
+                            <option value="examenes">Preparación para Exámenes</option>
+                            <option value="orientacion">Orientación Vocacional</option>
+                            <option value="otros">Otros</option>
+                        </select>
+                        <textarea placeholder="Mensaje" required></textarea>
+                        <button type="submit" class="btn">Enviar Mensaje</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-col">
+                    <h3>AsesoríasUTC</h3>
+                    <p>Tu futuro universitario comienza aquí. Brindamos asesoría especializada para ayudarte a ingresar a cualquier Universidad.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Servicios</h3>
+                    <ul>
+                        <li><a href="#">Asesoría de Admisión</a></li>
+                        <li><a href="#">Preparación para Exámenes</a></li>
+                        <li><a href="#">Orientación Vocacional</a></li>
+                        <li><a href="#">Talleres Especializados</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#servicios">Servicios</a></li>
+                        <li><a href="#nosotros">Nosotros</a></li>
+                        <li><a href="#testimonios">Testimonios</a></li>
+                        <li><a href="#galeria">Galería</a></li>
+                        <li><a href="#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><i class="material-icons">location_on</i> Huehuetoca Centro</li>
+                        <li><i class="material-icons">phone</i> +52 998 123 4567</li>
+                        <li><i class="material-icons">email</i> contacto@asesoriasutc.com</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 AsesoríasUTC. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox">
+        <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+        <div class="lightbox-nav">
+            <button onclick="changeImage(-1)">&#10094;</button>
+            <button onclick="changeImage(1)">&#10095;</button>
+        </div>
+        <div class="lightbox-content">
+            <img id="lightbox-image" src="" alt="">
+        </div>
+        <div class="lightbox-caption" id="lightbox-caption"></div>
+    </div>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu');
+        const navMenu = document.querySelector('nav ul');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('show');
+        });
+        
+        // Smooth Scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 70,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navMenu.classList.remove('show');
+                }
+            });
+        });
+        
+        // Lightbox functionality
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImage = document.getElementById('lightbox-image');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+        
+        // Array de imágenes y sus descripciones
+        const galleryImages = [
+            { src: 'https://i.ibb.co/B2Jd3GGC/94605b78-7409-4335-86f1-907c19aa096b-1.png', caption: 'Campus AsesoríasUTC' },
+            { src: 'https://i.ibb.co/C3jtxBTK/3cd0c961-c3d8-459d-a792-0b17ab136bbe.jpg', caption: 'Aulas AsesoríasUTC' },
+            { src: 'https://i.ibb.co/60GFbXsp/9fbdf1c3-bda6-44fe-8c49-bca3a1119467.jpg', caption: 'Biblioteca AsesoríasUTC' },
+            { src: 'https://i.ibb.co/LdDrpxhM/879f4d6f-a934-4b73-a1bf-2d2be11e5d51.jpg', caption: 'Estudiantes AsesoríasUTC' },
+            { src: 'https://i.ibb.co/cc6ZvGP4/4b1a1b7c-faa7-4753-a413-365d106a070e.jpg', caption: 'Laboratorios AsesoríasUTC' },
+            { src: 'https://i.ibb.co/zHLVx6YL/5e147cfe-a03b-4541-8f46-db4b359d0ac5.jpg', caption: 'Eventos AsesoríasUTC' },
+            { src: 'https://i.ibb.co/4w83MXNR/58e487de-97f0-4684-8556-84495715fcb9.jpg', caption: 'Profesores AsesoríasUTC' },
+            { src: 'https://i.ibb.co/LDvCD7d1/178d2160-2a75-48a5-8100-fcd24fad3f66.jpg', caption: 'Instalaciones AsesoríasUTC' },
+            { src: 'https://i.ibb.co/HLdpCkD4/7724d216-bd83-4fe0-b345-a9db7ede6e74.jpg', caption: 'Talleres AsesoríasUTC' },
+            { src: 'https://i.ibb.co/jvsRSVk2/fa01acc3-a820-4f15-969d-a73a26baec7f.jpg', caption: 'Actividades AsesoríasUTC' }
+        ];
+        
+        let currentImageIndex = 0;
+        
+        function openLightbox(src, caption) {
+            // Encontrar el índice de la imagen actual
+            currentImageIndex = galleryImages.findIndex(img => img.src === src);
+            if (currentImageIndex === -1) currentImageIndex = 0;
+            
+            lightboxImage.src = src;
+            lightboxCaption.textContent = caption;
+            lightbox.style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Previene el scroll
+        }
+        
+        function closeLightbox() {
+            lightbox.style.display = 'none';
+            document.body.style.overflow = 'auto'; // Restaura el scroll
+        }
+        
+        function changeImage(step) {
+            currentImageIndex += step;
+            
+            // Circular navigation
+            if (currentImageIndex >= galleryImages.length) {
+                currentImageIndex = 0;
+            } else if (currentImageIndex < 0) {
+                currentImageIndex = galleryImages.length - 1;
+            }
+            
+            lightboxImage.src = galleryImages[currentImageIndex].src;
+            lightboxCaption.textContent = galleryImages[currentImageIndex].caption;
+        }
+        
+        // Cerrar al hacer clic fuera de la imagen
+        lightbox.addEventListener('click', function(e) {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+        
+        // Navegación con teclado
+        document.addEventListener('keydown', function(e) {
+            if (lightbox.style.display === 'flex') {
+                if (e.key === 'Escape') {
+                    closeLightbox();
+                } else if (e.key === 'ArrowLeft') {
+                    changeImage(-1);
+                } else if (e.key === 'ArrowRight') {
+                    changeImage(1);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
