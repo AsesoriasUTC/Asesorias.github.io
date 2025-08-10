@@ -843,21 +843,27 @@ src="https://instagram.fmex12-1.fna.fbcdn.net/v/t51.2885-19/523247090_1800676545
                     </div>
                 </div>
                 <div class="contact-form">
-                    <form>
-                        <input type="text" placeholder="Nombre completo" required>
-                        <input type="email" placeholder="Correo electrónico" required>
-                        <input type="tel" placeholder="Teléfono">
-                        <select required>
-                            <option value="" disabled selected>Selecciona un servicio</option>
-                            <option value="admision">Asesoría de Admisión</option>
-                            <option value="examenes">Preparación para Exámenes</option>
-                            <option value="orientacion">Orientación Vocacional</option>
-                            <option value="otros">Otros</option>
-                        </select>
-                        <textarea placeholder="Mensaje" required></textarea>
-                        <button type="submit" class="btn">Enviar Mensaje</button>
-                    </form>
-                </div>
+    <form action="https://formsubmit.co/anscharlesss@gmail.com" method="POST">
+        <input type="text" name="Nombre" placeholder="Nombre completo" required>
+        <input type="email" name="Email" placeholder="Correo electrónico" required>
+        <input type="tel" name="Teléfono" placeholder="Teléfono">
+        <select name="Servicio" required>
+            <option value="" disabled selected>Selecciona un servicio</option>
+            <option value="Asesoría de Admisión">Asesoría de Admisión</option>
+            <option value="Preparación para Exámenes">Preparación para Exámenes</option>
+            <option value="Orientación Vocacional">Orientación Vocacional</option>
+        </select>
+        <textarea name="Mensaje" placeholder="Mensaje" required></textarea>
+
+        <!-- Configuración FormSubmit -->
+        <input type="hidden" name="_next" value="https://asesoriasutc.github.io/Asesorias.github.io/gracias.html">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_template" value="table">
+        <input type="hidden" name="_subject" value="Nueva solicitud AsesoríasUTC">
+
+        <button type="submit" class="btn">Enviar Mensaje</button>
+    </form>
+</div>
             </div>
         </div>
     </section>
