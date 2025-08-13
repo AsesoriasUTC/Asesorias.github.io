@@ -843,8 +843,8 @@ src="https://instagram.fmex12-1.fna.fbcdn.net/v/t51.2885-19/523247090_1800676545
                     </div>
                 </div>
 <div class="contact-form">
-    <form action="https://script.google.com/macros/s/AKfycbweFn5TDWJWmKYZNqXso1UHBJdnkE8tHrzWireaniXy4OjUw-6whgR7F024-wkOX8XWvw/exec" method="POST" enctype="multipart/form-data">
-        <!-- Campos del formulario (conservando tu diseño original) -->
+    <form action="https://script.google.com/macros/s/AKfycbwj1I73n7d8c0aH_SyofN2Grgg4d8Y1IeQiDXa4YQrNatiMXAPyAPaURgd7iHAsCUhGzg/exec" method="POST">
+        <!-- Campos del formulario -->
         <input type="text" name="Nombre" placeholder="Nombre completo" required>
         <input type="email" name="Email" placeholder="Correo electrónico" required>
         <input type="tel" name="Telefono" placeholder="Teléfono">
@@ -856,57 +856,36 @@ src="https://instagram.fmex12-1.fna.fbcdn.net/v/t51.2885-19/523247090_1800676545
         </select>
         <textarea name="Mensaje" placeholder="Mensaje" required></textarea>
         
-        <!-- Redirección (ahora controlada desde el script) -->
-        <input type="hidden" name="redirectTo" value="https://asesoriasutc.github.io/Asesorias.github.io/gracias.html">
-        
-        <!-- Botón de envío -->
         <button type="submit" class="btn">Enviar Mensaje</button>
     </form>
 </div>
 
-<!-- Script optimizado para el envío -->
 <script>
-    document.querySelector('form').addEventListener('submit', async function(e) {
+    document.querySelector('form').addEventListener('submit', function(e) {
         e.preventDefault();
         const form = e.target;
         const btn = form.querySelector('button[type="submit"]');
-        
-        // Estado de carga
         btn.disabled = true;
-        const originalText = btn.innerHTML;
-        btn.innerHTML = 'Enviando <span class="spinner">⏳</span>';
-        
-        try {
-            const response = await fetch(form.action, {
-                method: 'POST',
-                body: new FormData(form)
-            });
-            
+        btn.innerHTML = 'Enviando...';
+
+        fetch(form.action, {
+            method: 'POST',
+            body: new FormData(form)
+        })
+        .then(response => {
             if (response.ok) {
-                window.location.href = form.querySelector('[name="redirectTo"]').value;
+                window.location.href = 'https://asesoriasutc.github.io/Asesorias.github.io/gracias.html';
             } else {
-                throw new Error(await response.text());
+                throw new Error('Error en el servidor');
             }
-        } catch (error) {
-            console.error('Error:', error);
-            alert('Hubo un error al enviar el formulario. Por favor inténtalo nuevamente.');
-        } finally {
+        })
+        .catch(error => {
+            alert('Error al enviar: ' + error.message);
             btn.disabled = false;
-            btn.innerHTML = originalText;
-        }
+            btn.innerHTML = 'Enviar Mensaje';
+        });
     });
 </script>
-
-<style>
-    /* Estilos para el spinner (opcional) */
-    .spinner {
-        display: inline-block;
-        animation: spin 1s linear infinite;
-    }
-    @keyframes spin {
-        100% { transform: rotate(360deg); }
-    }
-</style>
 </div>
     <!-- Footer -->
     <footer>
@@ -1066,6 +1045,7 @@ src="https://instagram.fmex12-1.fna.fbcdn.net/v/t51.2885-19/523247090_1800676545
     </script>
 </body>
 </html>
+
 
 
 
