@@ -843,11 +843,11 @@ src="https://instagram.fmex12-1.fna.fbcdn.net/v/t51.2885-19/523247090_1800676545
                     </div>
                 </div>
 <div class="contact-form">
-    <form action="https://formsubmit.co/anscharlesss@gmail.com" method="POST">
-        <!-- Campos del formulario (manteniendo tu diseño original) -->
+    <form action="https://script.google.com/macros/s/AKfycbwj1I73n7d8c0aH_SyofN2Grgg4d8Y1IeQiDXa4YQrNatiMXAPyAPaURgd7iHAsCUhGzg/exec" method="POST" enctype="multipart/form-data">
+        <!-- Campos del formulario (conservando tu diseño original) -->
         <input type="text" name="Nombre" placeholder="Nombre completo" required>
         <input type="email" name="Email" placeholder="Correo electrónico" required>
-        <input type="tel" name="Teléfono" placeholder="Teléfono">
+        <input type="tel" name="Telefono" placeholder="Teléfono">
         <select name="Servicio" required>
             <option value="" disabled selected>Selecciona un servicio</option>
             <option value="Asesoría de Admisión">Asesoría de Admisión</option>
@@ -856,41 +856,57 @@ src="https://instagram.fmex12-1.fna.fbcdn.net/v/t51.2885-19/523247090_1800676545
         </select>
         <textarea name="Mensaje" placeholder="Mensaje" required></textarea>
         
-        <!-- Configuración de FormSubmit -->
-        <!-- 1. Respuesta automática personalizada -->
-        <input type="hidden" name="_autoresponse" value='
-        <html>
-            <body style="font-family: Arial, sans-serif; color: #333;">
-                <h2 style="color: #2c3e50;">¡Gracias %Nombre%! 🌟</h2>
-                <p>Hemos recibido tu solicitud sobre <strong>%Servicio%</strong> en AsesoríasUTC.</p>
-                <p><strong>Información importante:</strong></p>
-                <ul>
-                    <li>📘 <a href="https://bit.ly/guia-utc" style="color: #3498db;">Guía completa del servicio</a></li>
-                    <li>📅 <a href="https://bit.ly/fechas-utc" style="color: #3498db;">Próximas fechas disponibles</a></li>
-                </ul>
-                <p>Nos pondremos en contacto contigo en <strong>menos de 24 horas</strong>.</p>
-                <hr>
-                <p style="font-size: 12px; color: #7f8c8d;">
-                    Datos recibidos: %Nombre% | %Email% | Teléfono: ${Teléfono || "No proporcionado"}
-                </p>
-            </body>
-        </html>
-        '>
+        <!-- Redirección (ahora controlada desde el script) -->
+        <input type="hidden" name="redirectTo" value="https://asesoriasutc.github.io/Asesorias.github.io/gracias.html">
         
-        <!-- 2. Correos adicionales que recibirán copias -->
-        <input type="hidden" name="_cc" value="cbthuehue2@gmail.com,mananagerman9@gmail.com,aaronhuerta20dominguez@gmail.com">
-        
-        <!-- 3. Otras configuraciones -->
-        <input type="hidden" name="_next" value="https://asesoriasutc.github.io/Asesorias.github.io/gracias.html">
-        <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_subject" value="Nueva solicitud: %Servicio%">
-        <input type="hidden" name="_template" value="table">
-        
-        <!-- Trampa para bots (opcional) -->
-        <input type="text" name="_honey" style="display:none">
-        
+        <!-- Botón de envío -->
         <button type="submit" class="btn">Enviar Mensaje</button>
     </form>
+</div>
+
+<!-- Script optimizado para el envío -->
+<script>
+    document.querySelector('form').addEventListener('submit', async function(e) {
+        e.preventDefault();
+        const form = e.target;
+        const btn = form.querySelector('button[type="submit"]');
+        
+        // Estado de carga
+        btn.disabled = true;
+        const originalText = btn.innerHTML;
+        btn.innerHTML = 'Enviando <span class="spinner">⏳</span>';
+        
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form)
+            });
+            
+            if (response.ok) {
+                window.location.href = form.querySelector('[name="redirectTo"]').value;
+            } else {
+                throw new Error(await response.text());
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('Hubo un error al enviar el formulario. Por favor inténtalo nuevamente.');
+        } finally {
+            btn.disabled = false;
+            btn.innerHTML = originalText;
+        }
+    });
+</script>
+
+<style>
+    /* Estilos para el spinner (opcional) */
+    .spinner {
+        display: inline-block;
+        animation: spin 1s linear infinite;
+    }
+    @keyframes spin {
+        100% { transform: rotate(360deg); }
+    }
+</style>
 </div>
     <!-- Footer -->
     <footer>
@@ -1050,6 +1066,7 @@ src="https://instagram.fmex12-1.fna.fbcdn.net/v/t51.2885-19/523247090_1800676545
     </script>
 </body>
 </html>
+
 
 
 
